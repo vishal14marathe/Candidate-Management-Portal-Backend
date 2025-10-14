@@ -1,0 +1,41 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.log
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Maven
+.mvn/
+mvn*
+
+# Spring Boot
+*.log
+*.pid
+
+# H2 Database
+/data/
+*.db
+
+# File Uploads
+/uploads/
+
+# IDE
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+.settings/
+.classpath
+.project
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Application
+application-*.properties
+!application.properties
