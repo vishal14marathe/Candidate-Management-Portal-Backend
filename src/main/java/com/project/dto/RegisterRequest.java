@@ -33,6 +33,7 @@ public class RegisterRequest {
     private String occupationStatus;
 
     private String resumePath;
+<<<<<<< HEAD
     private String idProofPath;
     private String resumeBase64;
     private String resumeFilename;
@@ -197,3 +198,17 @@ public class RegisterRequest {
         this.idProofContentType = idProofContentType;
     }
 }
+=======
+
+    private String idProofPath;
+
+    // Base64 encoded file data for registration
+    private String resumeBase64;
+    private String resumeFilename;
+    private String resumeContentType;
+
+    private String idProofBase64;
+    private String idProofFilename;
+    private String idProofContentType;
+}
+>>>>>>> 2c8a9bc337fb232742624c6aa4705a15a0573a1a

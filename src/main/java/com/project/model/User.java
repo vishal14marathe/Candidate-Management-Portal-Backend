@@ -26,6 +26,7 @@ public class User {
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
+<<<<<<< HEAD
     // Constructors
     public User() {
     }
@@ -88,6 +89,8 @@ public class User {
         this.createdAt = createdAt;
     }
 
+=======
+>>>>>>> 2c8a9bc337fb232742624c6aa4705a15a0573a1a
     @PrePersist
     protected void onCreate() {
         createdAt = LocalDateTime.now();

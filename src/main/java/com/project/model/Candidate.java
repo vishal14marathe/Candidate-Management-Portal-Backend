@@ -1,6 +1,12 @@
 package com.project.model;
 
 import jakarta.persistence.*;
+<<<<<<< HEAD
+=======
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+>>>>>>> 2c8a9bc337fb232742624c6aa4705a15a0573a1a
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -21,7 +27,11 @@ public class Candidate {
 
     @Column(nullable = false)
     private String qualification;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 2c8a9bc337fb232742624c6aa4705a15a0573a1a
     @Column(name = "identity_proof_number")
     private String identityProofNumber;
 
@@ -38,11 +48,16 @@ public class Candidate {
     private String occupationStatus;
 
     private String resumePath;
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 2c8a9bc337fb232742624c6aa4705a15a0573a1a
     @Lob
     @JdbcTypeCode(SqlTypes.BINARY)
     @Column(name = "resume_data", columnDefinition = "BYTEA")
     private byte[] resumeData;
+<<<<<<< HEAD
 
     @Column(name = "resume_filename")
     private String resumeFilename;
@@ -50,10 +65,20 @@ public class Candidate {
     @Column(name = "resume_content_type")
     private String resumeContentType;
 
+=======
+    
+    @Column(name = "resume_filename")
+    private String resumeFilename;
+    
+    @Column(name = "resume_content_type")
+    private String resumeContentType;
+    
+>>>>>>> 2c8a9bc337fb232742624c6aa4705a15a0573a1a
     @Lob
     @JdbcTypeCode(SqlTypes.BINARY)
     @Column(name = "id_proof_data", columnDefinition = "BYTEA")
     private byte[] idProofData;
+<<<<<<< HEAD
 
     @Column(name = "id_proof_filename")
     private String idProofFilename;
@@ -61,6 +86,15 @@ public class Candidate {
     @Column(name = "id_proof_content_type")
     private String idProofContentType;
 
+=======
+    
+    @Column(name = "id_proof_filename")
+    private String idProofFilename;
+    
+    @Column(name = "id_proof_content_type")
+    private String idProofContentType;
+    
+>>>>>>> 2c8a9bc337fb232742624c6aa4705a15a0573a1a
     @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 

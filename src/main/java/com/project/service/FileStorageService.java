@@ -26,6 +26,7 @@ public class FileStorageService {
     private boolean storageAvailable = false;
 
     @Autowired
+<<<<<<< HEAD
     public FileStorageService(FileStorageProperties fileStorageProperties) {
         // Try multiple directory options in order of preference
         Path[] possiblePaths = {
@@ -58,6 +59,49 @@ public class FileStorageService {
                 lastException = e;
                 System.out.println("✗ Cannot use directory " + path + ": " + e.getMessage());
                 // Continue to next option
+=======
+    private CandidateRepository candidateRepository;
+    
+    @Autowired
+    public FileStorageService(@Value("${file.upload-dir}") String uploadDir) {
+        this.fileStorageLocation = Paths.get(uploadDir).toAbsolutePath().normalize();
+        try {
+            Files.createDirectories(this.fileStorageLocation);
+        } catch (Exception ex) {
+            throw new RuntimeException("Could not create the directory where the uploaded files will be stored.", ex);
+        }
+    }
+    
+    // Store file temporarily during registration (before candidate is created)
+    public String storeTempFile(MultipartFile file) {
+        String originalFileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String fileName = UUID.randomUUID().toString() + "_" + originalFileName;
+        
+        try {
+            if (fileName.contains("..")) {
+                throw new RuntimeException("Invalid file path: " + fileName);
+            }
+            
+            Path targetLocation = this.fileStorageLocation.resolve(fileName);
+            Files.copy(file.getInputStream(), targetLocation, StandardCopyOption.REPLACE_EXISTING);
+            
+            return fileName;
+        } catch (IOException ex) {
+            throw new RuntimeException("Could not store file " + fileName, ex);
+        }
+    }
+    
+    public String storeFile(MultipartFile file, Long candidateId) {
+        Candidate candidate = candidateRepository.findById(candidateId)
+                .orElseThrow(() -> new RuntimeException("Candidate not found with id: " + candidateId));
+        
+        String originalFileName = StringUtils.cleanPath(file.getOriginalFilename());
+        String fileName = UUID.randomUUID().toString() + "_" + originalFileName;
+        
+        try {
+            if (fileName.contains("..")) {
+                throw new RuntimeException("Invalid file path: " + fileName);
+>>>>>>> 2c8a9bc337fb232742624c6aa4705a15a0573a1a
             }
         }
 
